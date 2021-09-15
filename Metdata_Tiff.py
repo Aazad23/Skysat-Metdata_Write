@@ -4,15 +4,22 @@ Created on Wed Sep 15 11:52:49 2021
 
 @author: AazadPatle
 """
-
+import os
+import glob
 import json
 import rasterio
 import numpy as np
 import geopandas as gpd
 from shapely.geometry import Polygon
 
-SR_path = '.\\20210813_125720_ssc15d2_0016\\analytic_sr_udm2\\20210813_125720_ssc15d2_0016_analytic_SR.TIF'
-meta_path = '.\\20210813_125720_ssc15d2_0016\\20210813_125720_ssc15d2_0016_metadata.json'
+os.chdir('.\\20210813_125720_ssc15d2_0016\\analytic_sr_udm2')
+
+SR_path = sorted(glob.glob(os.path.join(os.getcwd() ,'*SR.TIF')))[0]
+meta_path = sorted(glob.glob(os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir),'*.json')))[0]
+
+
+# SR_path = 'D:\\Skysat\\SkySat-Co-Registration\\files\\SkySatScene\\20210813_125720_ssc15d2_0016\\analytic_sr_udm2\\20210813_125720_ssc15d2_0016_analytic_SR.TIF'
+# meta_path = 'D:\\Skysat\\SkySat-Co-Registration\\files\\SkySatScene\\20210813_125720_ssc15d2_0016\\20210813_125720_ssc15d2_0016_metadata.json'
 
 def create_vector_GDF(coordinates,epsg_code):
     '''Creates polygon geodataframe from Coordinates
