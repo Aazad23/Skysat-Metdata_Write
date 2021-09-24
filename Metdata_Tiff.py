@@ -8,7 +8,8 @@ Contents
 
 1. Description
 2. Modules
-3. User defined function Desription 
+3. Code sequence
+4. User defined function Desription 
 4. Script Content
     a. Imports
     b. User Defined Functions
@@ -24,7 +25,10 @@ Contents
                 d. rasterio - raster processing / reading /writing
                 e. shapely - to create polygon data
                 f. geopandas - to create geodataframe of polygon data
-3. User defined function 
+3. Code sequence :
+                  After loading modules, script runs user defined functions then inputs are defined and Meta_write function runs to write geotiff file
+    
+4. User defined function 
                 a. create_vector_GDF 
                     Creates polygon geodataframe using corner Coordinates
                     Inputs -i. coordinates: numpy array =>  containing x ,y cooordinates of polygon size Nx2 
