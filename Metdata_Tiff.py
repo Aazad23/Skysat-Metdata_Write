@@ -12,7 +12,7 @@ Contents
 4. Script Content
     a. Imports
     b. User Defined Functions
-    c. Function tests
+    c. Driver Code
 
 1. Descritption 
                 Scripts automates the inclusion of metadata from a json file to a tiff file
@@ -52,7 +52,7 @@ import numpy as np
 import geopandas as gpd
 from shapely.geometry import Polygon
 
-'''1. Imports '''
+'''2. Functions '''
 
 def create_vector_GDF(coordinates,epsg_code=4326):
     '''Creates polygon geodataframe from Coordinates
@@ -108,7 +108,7 @@ def Meta_write(SR_path,meta_path):
             
     tiff_data.close()
 
-# Driver Code
+'''3. Driver Code '''
 if __name__ == '__main__':
     
     # SR_path = 'D:\\Skysat\\SkySat-Co-Registration\\files\\SkySatScene\\20210813_125720_ssc15d2_0016\\analytic_sr_udm2\\20210813_125720_ssc15d2_0016_analytic_SR.TIF'
