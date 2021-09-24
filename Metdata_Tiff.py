@@ -8,9 +8,8 @@ Contents
 
 1. Description
 2. Modules
-3. Code Sequence
-4. User defined function Desription 
-5. Script Content
+3. User defined function Desription 
+4. Script Content
     a. Imports
     b. User Defined Functions
     c. Function tests
