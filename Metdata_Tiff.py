@@ -10,7 +10,8 @@ Contents
 2. Modules
 3. Code sequence
 4. User defined function Desription 
-4. Script Content
+5. Steps
+6. Script Content
     a. Imports
     b. User Defined Functions
     c. Driver Code
@@ -43,7 +44,18 @@ Contents
                     * Once transforms are applied properly while writing geotiff file, geocoding tiff tags gets automatically applied
                     Output: 1- writes a new tiff file in same directory as of tiff with name ending "_tagged"
         
-                    
+ 5.Steps:
+     1. Open script in any editor or notebook
+     2. Make sure all required moodules are properly installed
+     3. Import libraries
+     4. and Run all User defined functions
+     5. Set directory where tiff file is present tiff file exist
+             user can set path according to the file availablity
+             if json file is available in the preceeding directory of TIff file
+             paths are set as shown in L-124 & l-125
+             
+     6. Set output file path currently it is set to same path where tiff is present, user can set it according to their need
+     7. Run main driver function to get properly tagged geotiff                    
 """
 
 '''1. Imports '''
@@ -124,19 +136,7 @@ if __name__ == '__main__':
     Meta_write(SR_path,meta_path,Out_fpath)
                 
 
-        
-'''Steps:
-    1. Open script in any editor or notebook
-    2. Make sure all required moodules are properly installed
-    3. Import libraries
-    4. and Run all User defined functions
-    5. Set directory where tiff file is present tiff file exist
-            user can set path according to the file availablity
-            if json file is available in the preceeding directory of TIff file
-            paths are set as shown in L-124 & l-125
-            
-    6. Set output file path currently it is set to same path where tiff is present, user can set it according to their need
-    7. Run main driver function to get geotiff file written in the '''       
+     
     
     
     
