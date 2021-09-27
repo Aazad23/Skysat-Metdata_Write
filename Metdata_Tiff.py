@@ -71,7 +71,7 @@ def create_vector_GDF(coordinates,epsg_code=4326):
     return polygon
     
 
-def Meta_write(SR_path,meta_path):
+def Meta_write(SR_path,meta_path,Out_fpath):
     
     ''' Create new TIFF dataset based on Metadata filejup
     SR_path: str (tiff file path)
@@ -90,15 +90,8 @@ def Meta_write(SR_path,meta_path):
     
     # defining transform from bounds and CRS
     transform = rasterio.transform.from_bounds(bounds[0],bounds[1],bounds[2],bounds[3], width,height)
-    crs = rasterio.crs.CRS.from_epsg(4326)  
-
-    # defining  output file name and path  to the same directory as of TIff file
-    fname = SR_path.split('\\')[-1][:-4] +'_tagged.TIF'
-    fdirpath = '\\'.join(SR_path.split('\\')[:-1])
-    Out_fpath = '\\'.join((fdirpath,fname))    
-    
-    
-    
+    crs = rasterio.crs.CRS.from_epsg(4326)   
+           
     #Writing GeoTiff
     with rasterio.open(Out_fpath,'w+',driver='GTiff',height=height,width=width,count=count,
                        compress = 'lzw',dtype=np.uint16,transform = transform,crs =crs,nodata= 0.0,
@@ -124,11 +117,26 @@ if __name__ == '__main__':
     SR_path = sorted(glob.glob(os.path.join(os.getcwd() ,'*SR.TIF')))[0] 
     meta_path = sorted(glob.glob(os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir),'*.json')))[0]
     
-    Meta_write(SR_path,meta_path)
+    # defining  output file name and path  to the same directory as of TIff file
+    fname = SR_path.split('\\')[-1][:-4] +'_tagged.TIF'
+    Out_fpath = os.path.join(os.getcwd() ,fname)
+    
+    Meta_write(SR_path,meta_path,Out_fpath)
                 
 
         
-        
+'''Steps:
+    1. Open script in any editor or notebook
+    2. Make sure all required moodules are properly installed
+    3. Import libraries
+    4. and Run all User defined functions
+    5. Set directory where tiff file is present tiff file exist
+            user can set path according to the file availablity
+            if json file is available in the preceeding directory of TIff file
+            paths are set as shown in L-124 & l-125
+            
+    6. Set output file path currently it is set to same path where tiff is present, user can set it according to their need
+    7. Run main driver function to get geotiff file written in the '''       
     
     
     
